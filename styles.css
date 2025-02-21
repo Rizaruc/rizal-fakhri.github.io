@@ -1,0 +1,203 @@
+header nav {
+    display: flex;
+    justify-content: space-between; /* Memastikan elemen di dalam nav terdistribusi dengan baik */
+     /* Menyelaraskan item secara vertikal */
+    position: relative; /* Menambahkan posisi relatif untuk penataan lebih lanjut */
+}
+
+.title {
+    flex: 1; /* Membuat judul mengambil ruang yang tersedia */
+    text-align: center; /* Menyelaraskan teks ke tengah */
+}
+
+.nav-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-items li {
+    margin-left: 20px;
+}
+
+.back-button {
+    margin-left: auto; /* Memindahkan tombol ke sebelah kanan */
+}
+
+.back-button a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+.back-button a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #111827;
+    color: white;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInDown 0.8s forwards;
+}
+
+.timeline {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    background-color: #1f2937;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: fadeInLeft 0.8s forwards;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item:nth-child(even) {
+    transform: translateX(100px);
+    animation: fadeInRight 0.8s forwards;
+}
+
+.timeline-item[data-era="1.0"] .era-badge { background: linear-gradient(to right, #f59e0b, #d97706); }
+.timeline-item[data-era="2.0"] .era-badge { background: linear-gradient(to right, #3b82f6, #1d4ed8); }
+.timeline-item[data-era="3.0"] .era-badge { background: linear-gradient(to right, #10b981, #059669); }
+.timeline-item[data-era="4.0"] .era-badge { background: linear-gradient(to right, #8b5cf6, #6d28d9); }
+
+.timeline-image {
+    width: 100%;
+    height: 250px;
+}
+
+.timeline-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.timeline-content {
+    padding: 1.5rem;
+}
+
+.era-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.year {
+    color: #9ca3af;
+    margin-bottom: 0.5rem;
+}
+
+.description {
+    color: #d1d5db;
+    font-size: 1.1rem;
+}
+
+.sources {
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    text-align: center;
+    color: #9ca3af;
+    opacity: 0;
+    animation: fadeIn 0.8s forwards;
+    animation-delay: 2s;
+}
+
+.sources h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.sources ul {
+    list-style: none;
+}
+
+.sources li {
+    margin-bottom: 0.5rem;
+}
+
+@keyframes fadeInDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 3.5rem;
+    }
+
+    .timeline-item {
+        display: flex;
+        align-items: stretch;
+    }
+
+    .timeline-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    .timeline-image {
+        width: 50%;
+        height: auto;
+    }
+
+    .timeline-content {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
