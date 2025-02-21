@@ -79,6 +79,7 @@ section {
 
 .home-img img {
     width: 35vw;
+    border-radius: 50%;
 }
 
 .home-content h3 {
@@ -152,6 +153,7 @@ span {
 
 .about-image img {
     width: 35vw;
+    border-radius: 50%;
 }
 
 .heading {
@@ -215,3 +217,82 @@ span {
     margin: 1rem 0 3rem;
 }
 
+.certificate {
+    background: var(--second-bg-color);
+}
+
+.certificate h2 {
+    margin-bottom: 4rem;
+}
+
+.certificate-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.certificate-container .certificate-box {
+    position: relative;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem var(--bg-color);
+    overflow: hidden;
+    display: flex;
+}
+
+.certificate-box img {
+    width: 100%;
+}
+
+.certificate-box img {
+    width: 100%;
+    transition: .5s ease;
+}
+
+.certificate-box:hover img {
+    transform: scale(1.1);
+}
+
+.certificate-box .certificate-layer {
+    position: absolute;
+    bottom: 5;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, .1), var(--main-color));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 4rem;
+    transform: translateY(100%);
+    transition: .5s ease;
+}
+
+.certificate-box:hover .certificate-layer {
+    transform: translateY(0 );
+}
+
+.certificate-layer h4 {
+    font-size: 3rem;
+}
+
+.certificate-layer {
+    font-size: 1.6rem;
+    margin: .5rem 0 1rem;
+}
+
+.certificate-layer a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    background: var(--text-color);
+    border-radius: 50%;
+}
+
+.certificate-layer a i {
+    font-size: 2rem;
+    color: var(--second-bg-color);
+}
