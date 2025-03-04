@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator & Baris Deret Aritmatika </title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        .container { display: flex; justify-content: space-around; flex-wrap: wrap; }
+        .box { width: 300px; padding: 20px; border: 1px solid #ccc; border-radius: 10px; margin: 10px; }
+        input, button { margin: 5px; padding: 10px; width: 90%; }
+        .kalkulator button { width: 60px; height: 60px; font-size: 18px; margin: 5px; }
+        .kalkulator { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; justify-content: center; }
+    </style>
+</head>
+<body>
+    <h2>Kalkulator & Perhitungan Aritmatika</h2>
+    <div class="container">
+        <!-- Kalkulator Sederhana -->
+        <div class="box">
+            <h3>Kalkulator</h3>
+            <input type="text" id="display" readonly>
+            <div class="kalkulator">
+                <button onclick="clearDisplay()">C</button>
+                <button onclick="backspace()">⌫</button>
+                <button onclick="insert('%')">%</button>
+                <button onclick="insert('/')">÷</button>
+                <button onclick="insert('7')">7</button>
+                <button onclick="insert('8')">8</button>
+                <button onclick="insert('9')">9</button>
+                <button onclick="insert('*')">×</button>
+                <button onclick="insert('4')">4</button>
+                <button onclick="insert('5')">5</button>
+                <button onclick="insert('6')">6</button>
+                <button onclick="insert('-')">-</button>
+                <button onclick="insert('1')">1</button>
+                <button onclick="insert('2')">2</button>
+                <button onclick="insert('3')">3</button>
+                <button onclick="insert('+')">+</button>
+                <button onclick="insert('+/-')">+/-</button>
+                <button onclick="insert('0')">0</button>
+                <button onclick="insert('.')">,</button>
+                <button onclick="calculate()">=</button>
+            </div>
+        </div>
+        
+        <!-- Baris dan Deret Aritmatika -->
+        <div class="box">
+            <h3>Baris & Deret Aritmatika</h3>
+            <input type="text" id="a" placeholder="Suku pertama (a)">
+            <input type="text" id="b" placeholder="Beda (b)">
+            <input type="text" id="n" placeholder="Banyak suku (n)">
+            <button onclick="hitungAritmatika()">Hitung</button>
+            <p>Baris: <span id="baris"></span></p>
+            <p>Jumlah Deret: <span id="jumlah"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function insert(value) {
+            document.getElementById("display").value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById("display").value = "";
+        }
+
+        function backspace() {
+            let display = document.getElementById("display");
+            display.value = display.value.slice(0, -1);
+        }
+
+        function calculate() {
+            try {
+                document.getElementById("display").value = eval(document.getElementById("display").value);
+            } catch (e) {
+                document.getElementById("display").value = "Error";
+            }
+        }
+
+        function hitungAritmatika() {
+            let a = parseFloat(document.getElementById("a").value);
+            let b = parseFloat(document.getElementById("b").value);
+            let n = parseInt(document.getElementById("n").value);
+            
+            if (isNaN(a) || isNaN(b) || isNaN(n)) {
+                document.getElementById("baris").innerText = "Masukkan angka yang valid";
+                document.getElementById("jumlah").innerText = "";
+                return;
+            }
+            
+            let baris = [];
+            for (let i = 0; i < n; i++) {
+                baris.push(a + i * b);
+            }
+            let jumlah = (n / 2) * (2 * a + (n - 1) * b);
+            
+            document.getElementById("baris").innerText = baris.join(", ");
+            document.getElementById("jumlah").innerText = jumlah;
+        }
+    </script>
+</body>
+</html>
