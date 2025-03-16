@@ -82,8 +82,21 @@ section {
 }
 
 .home-img img {
-    width: 35vw;
+    width: 30vw;
     border-radius: 50%;
+    animation: floatImage 4s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-2.4rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .home-content h3 {
@@ -157,7 +170,7 @@ span {
 
 .about-image img {
     width: 35vw;
-    border-radius: 50%  ;
+    border-radius: 50%;
 }
 
 .heading {
@@ -382,6 +395,17 @@ span {
   section {
     padding: 10rem 3% 2rem;
   }
+  .services {
+    padding-bottom: 7rem;
+  }
+
+  .certificate {
+    padding-bottom: 7rem;
+  }
+
+  .contact {
+    min-height: auto;
+  }
 
   .footer {
     padding: 2rem 3%;
@@ -443,5 +467,28 @@ span {
     .services h2{
         margin-bottom: 3rem;
     }
+
+    .certificate h2 {
+        margin-bottom: 3rem;
+    }
+
+    .certificate-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
+@media (max-width: 617px) {
+    .certificate-container {
+        grid-template-columns: 1fr;
+    }
+} 
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+
+    .contact form .input-box input {
+        width: 100%;
+    }
+}
